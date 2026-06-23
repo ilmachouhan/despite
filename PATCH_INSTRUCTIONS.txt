@@ -1,0 +1,62 @@
+DESPITE MINIMAL PATCH — NO REDESIGN
+
+This patch only changes the original CinematicTimeline.tsx.
+
+Changes included:
+1. Adds /public/assets/hero.png as a fixed static hero backdrop behind the whole landing experience.
+2. Text sections now scroll over the static hero image, making the page feel more dynamic.
+3. Shortens the huge vertical gaps by reducing main section heights from full-screen to about 72vh.
+4. Deletes the Ghost Mode section.
+5. Removes visible numbering/sequence labels and removes the word “scene” from the component.
+6. Updates the thesis paragraph to your requested wording.
+7. Removes the word ChatGPT from the image upload button text.
+
+It does NOT redesign your site.
+
+HOW TO APPLY:
+
+1. In your Mac project, go to:
+
+   ~/Desktop/despite_brand/src/components/
+
+2. Back up your old file first:
+
+   cp CinematicTimeline.tsx CinematicTimeline.backup.tsx
+
+3. Replace this file:
+
+   CinematicTimeline.tsx
+
+   with the included file:
+
+   CinematicTimeline.fixed.tsx
+
+4. Rename the fixed file back to:
+
+   CinematicTimeline.tsx
+
+5. Make sure your hero image exists at exactly this path:
+
+   ~/Desktop/despite_brand/public/assets/hero.png
+
+   If your image is currently in assets/ with the long ChatGPT filename, run:
+
+   cd ~/Desktop/despite_brand
+   mkdir -p public/assets
+   cp "assets/ChatGPT Image Jun 22, 2026 at 03_16_34 PM.png" public/assets/hero.png
+
+   If your image is already inside public/assets with the long name, run:
+
+   cd ~/Desktop/despite_brand
+   cp "public/assets/ChatGPT Image Jun 22, 2026 at 03_16_34 PM.png" public/assets/hero.png
+
+6. Restart local server:
+
+   Ctrl + C
+   npm run dev
+
+7. Hard refresh browser:
+
+   Cmd + Shift + R
+
+Build was tested successfully with this fixed file.

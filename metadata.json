@@ -1,0 +1,7 @@
+{
+  "name": "Despite Brand",
+  "description": "An immersive, cinematic story-driven coming-soon experience for the cult brand Despite, featuring receipt submission (email capture) and an admin receipts dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

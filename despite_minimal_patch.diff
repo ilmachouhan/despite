@@ -1,0 +1,231 @@
+--- src/components/CinematicTimeline.tsx
++++ src/components/CinematicTimeline.tsx
+@@ -339,6 +339,15 @@
+         style={{ background: backgroundRedIntensity }}
+       />
+ 
++      {/* Static hero image backdrop stays locked while all text scrolls over it */}
++      <img
++        src="/assets/hero.png"
++        alt="Despite static hero backdrop"
++        className="fixed inset-0 w-full h-full object-cover opacity-40 brightness-[0.38] contrast-125 saturate-150 pointer-events-none select-none z-0"
++        draggable={false}
++      />
++      <div className="fixed inset-0 pointer-events-none z-0 bg-gradient-to-b from-black/80 via-black/45 to-black/90" />
++
+       {/* Cinematic Frame Border Letterbox */}
+       <div className="fixed inset-0 pointer-events-none border-[12px] md:border-[20px] border-black z-40" />
+ 
+@@ -378,11 +387,10 @@
+         <span>REBELS RECORDED</span>
+       </div>
+ 
+-      {/* ================= Scene 1: Pitch Black Silence ================= */}
+-      <section className="relative min-h-screen flex flex-col items-center justify-center bg-black px-6 select-none border-b border-zinc-950">
+-        <div className="absolute inset-0 bg-gradient-to-b from-black via-black to-zinc-950/20 z-0 pointer-events-none" />
++      {/* Opening: Pitch Black Silence */}
++      <section className="relative min-h-[72vh] flex flex-col items-center justify-center bg-black/55 backdrop-blur-[1px] px-6 select-none border-b border-zinc-950 overflow-hidden">
++        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/35 to-black z-0 pointer-events-none" />
+         <div className="relative z-10 max-w-4xl text-center space-y-4">
+-          <span className="font-mono text-[9px] tracking-[0.4em] text-zinc-650 uppercase block mb-2 animate-pulse">SCENE I // THE COMMENCEMENT</span>
+           <motion.h2 
+             initial={{ opacity: 0, y: 15 }}
+             whileInView={{ opacity: 1, y: 0 }}
+@@ -398,12 +406,11 @@
+         </div>
+       </section>
+ 
+-      {/* ================= Scene 2: The Rigged Game ================= */}
+-      <section className="relative min-h-screen flex flex-col items-center justify-center bg-black px-6 select-none border-b border-zinc-950">
++      {/* The Rigged Game */}
++      <section className="relative min-h-[72vh] flex flex-col items-center justify-center bg-black/55 backdrop-blur-[1px] px-6 select-none border-b border-zinc-950">
+         <div className="absolute inset-0 bg-[linear-gradient(rgba(10,5,5,0.4)_1px,transparent_1px),linear-gradient(90deg,rgba(10,5,5,0.4)_1px,transparent_1px)] bg-[size:40px_40px] opacity-25" />
+-        <div className="relative z-10 max-w-3xl text-center space-y-12">
++        <div className="relative z-10 max-w-3xl text-center space-y-8">
+           <div className="space-y-4">
+-            <span className="font-mono text-[10px] tracking-[0.3em] text-rose-500 font-bold uppercase block">[ SCENE II // THE RIGGED GAME ]</span>
+             <motion.p 
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+@@ -428,42 +435,11 @@
+         </div>
+       </section>
+ 
+-      {/* ================= Scene 3: The Ghost Mode ================= */}
+-      <section className="relative min-h-screen flex flex-col items-center justify-center bg-black px-6 select-none border-b border-zinc-950">
+-        {/* Glow shifting effect */}
+-        <div className="absolute inset-x-0 bottom-0 h-96 bg-gradient-to-t from-red-950/20 via-rose-950/5 to-transparent blur-3xl pointer-events-none z-0" />
+-        
+-        <div className="relative z-10 max-w-4xl text-center space-y-10">
+-          <div className="space-y-3">
+-            <span className="font-mono text-[10px] tracking-[0.3em] text-rose-500 font-bold uppercase block">- SCENE III // THE GHOST MODE -</span>
+-            <motion.h3 
+-              initial={{ opacity: 0, y: 15 }}
+-              whileInView={{ opacity: 1, y: 0 }}
+-              viewport={{ once: false }}
+-              className="text-xs font-mono tracking-[0.5em] text-zinc-500 uppercase"
+-            >
+-              The Silent Sandbox
+-            </motion.h3>
+-          </div>
+-
+-          <motion.p 
+-            initial={{ opacity: 0, y: 25 }}
+-            whileInView={{ opacity: 1, y: 0 }}
+-            viewport={{ once: false, margin: "-15%" }}
+-            transition={{ duration: 1.1, ease: "easeOut" }}
+-            className="text-lg sm:text-2xl md:text-3xl font-serif italic text-zinc-300 leading-relaxed text-justify sm:text-center font-light"
+-          >
+-            &ldquo;And for a while, you gave them exactly what they expected. Silence. No network. No rich parents. No bailout. Just a screen that overheated at 3 AM. A bank account holding its breath. And a delusion so deep, it outlasted the doubt.&rdquo;
+-          </motion.p>
+-        </div>
+-      </section>
+-
+-      {/* ================= Scene 4: The Pivot ================= */}
+-      <section className="relative min-h-screen flex flex-col items-center justify-center bg-black px-6 select-none border-b border-zinc-950">
++      {/* The Pivot */}
++      <section className="relative min-h-[72vh] flex flex-col items-center justify-center bg-black/55 backdrop-blur-[1px] px-6 select-none border-b border-zinc-950">
+         <div className="absolute inset-x-0 top-1/4 bottom-1/4 bg-red-950/5 blur-3xl rounded-full pointer-events-none" />
+-        <div className="relative z-10 max-w-3xl text-center space-y-12">
++        <div className="relative z-10 max-w-3xl text-center space-y-8">
+           <div className="space-y-4">
+-            <span className="font-mono text-[10px] tracking-[0.3em] text-rose-500 font-bold uppercase block">SCENE IV // THE PIVOT</span>
+             <motion.p 
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+@@ -485,10 +461,9 @@
+         </div>
+       </section>
+ 
+-      {/* ================= Scene 5: The Validation ================= */}
+-      <section className="relative min-h-screen flex flex-col items-center justify-center bg-[#010101] px-6 select-none border-b border-zinc-950">
+-        <div className="relative z-10 max-w-4xl text-center space-y-12">
+-          <span className="font-mono text-[10px] tracking-[0.3em] text-rose-500 font-bold uppercase block">SCENE V // THE VALIDATION</span>
++      {/* The Validation */}
++      <section className="relative min-h-[72vh] flex flex-col items-center justify-center bg-black/60 backdrop-blur-[1px] px-6 select-none border-b border-zinc-950">
++        <div className="relative z-10 max-w-4xl text-center space-y-8">
+           
+           <motion.div 
+             initial={{ opacity: 0, scale: 0.9 }}
+@@ -514,14 +489,13 @@
+         </div>
+       </section>
+ 
+-      {/* ================= Scene 6: The Constitution of Despite ================= */}
+-      <section className="relative min-h-screen flex flex-col items-center justify-center bg-black px-6 select-none border-b border-zinc-950 overflow-hidden">
++      {/* The Constitution of Despite */}
++      <section className="relative min-h-[72vh] flex flex-col items-center justify-center bg-black/55 backdrop-blur-[1px] px-6 select-none border-b border-zinc-950 overflow-hidden">
+         {/* Shifting background red haze filling the edges */}
+         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(244,63,94,0.08)_0%,_rgba(0,0,0,1)_80%)] md:bg-[radial-gradient(circle_at_center,_rgba(244,63,94,0.12)_0%,_rgba(0,0,0,1)_70%)] animate-pulse pointer-events-none" />
+         
+-        <div className="relative z-10 max-w-4xl text-center space-y-14">
++        <div className="relative z-10 max-w-4xl text-center space-y-10">
+           <div className="space-y-4">
+-            <span className="font-mono text-[10px] tracking-[0.3em] text-rose-500 font-bold uppercase block">SCENE VI // THE CONSTITUTION</span>
+             <motion.p 
+               initial={{ opacity: 0, y: 15 }}
+               whileInView={{ opacity: 1, y: 0 }}
+@@ -549,38 +523,18 @@
+         </div>
+       </section>
+ 
+-      {/* ================= Scene 7: The Gated Entry ================= */}
+-      <section id="the_gate" className="min-h-screen relative flex flex-col items-center justify-center px-6 py-24 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-955 via-black to-black border-t border-zinc-900">
++      {/* The Gated Entry */}
++      <section id="the_gate" className="min-h-[86vh] relative flex flex-col items-center justify-center px-6 py-24 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-955 via-black to-black border-t border-zinc-900">
+         
+-        {/* BIG HERO CLIMAX BACKDROP: Elegant uploaded ChatGPT JPG hero image or procedurally crafted fallback SVG */}
++        {/* BIG HERO CLIMAX BACKDROP: uploaded hero image */}
+         <div className="absolute inset-0 z-0 overflow-hidden bg-black opacity-30 pointer-events-none">
+-          {customHeroUrl ? (
+-            <img 
+-              src={customHeroUrl} 
+-              className="w-full h-full object-cover shrink-0 select-none brightness-60 contrast-125 saturate-110"
+-              referrerPolicy="no-referrer"
+-              alt="climax backdrop"
+-            />
+-          ) : (
+-            <svg 
+-              viewBox="0 0 1600 900" 
+-              className="w-full h-full object-cover pointer-events-none select-none opacity-60"
+-            >
+-              <defs>
+-                <radialGradient id="climaxGlow" cx="50%" cy="40%" r="65%">
+-                  <stop offset="0%" stopColor="#1a0407" stopOpacity="0.8" />
+-                  <stop offset="50%" stopColor="#0c0102" stopOpacity="0.95" />
+-                  <stop offset="100%" stopColor="#000000" stopOpacity="1" />
+-                </radialGradient>
+-                <radialGradient id="laserBeam" cx="50%" cy="45%" r="30%">
+-                  <stop offset="0%" stopColor="#e11d48" stopOpacity="0.25" />
+-                  <stop offset="100%" stopColor="#e11d48" stopOpacity="0" />
+-                </radialGradient>
+-              </defs>
+-              <rect width="1600" height="900" fill="url(#climaxGlow)" />
+-              <circle cx="800" cy="450" r="450" fill="url(#laserBeam)" />
+-            </svg>
+-          )}
++          <img 
++            src={customHeroUrl || "/assets/hero.png"} 
++            className="w-full h-full object-cover shrink-0 select-none brightness-60 contrast-125 saturate-110"
++            referrerPolicy="no-referrer"
++            alt="Despite hero backdrop"
++            draggable={false}
++          />
+           {/* Vignette layer */}
+           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black z-10" />
+         </div>
+@@ -589,7 +543,7 @@
+         <div className="relative z-30 mb-8 flex flex-col items-center">
+           <label className="flex items-center gap-2 px-3 py-1.5 border border-rose-500/20 bg-black/95 hover:bg-rose-950/40 hover:border-rose-500 focus-within:border-rose-500 text-rose-450 rounded text-[9px] font-mono tracking-widest uppercase transition-all duration-300 cursor-pointer shadow-lg select-none">
+             <Sparkles size={11} className={isUploadingImage ? "animate-spin" : "animate-pulse"} />
+-            <span>{isUploadingImage ? "LOCKING IMAGE..." : customHeroUrl ? "REPLACE ORIGINAL CHATGPT JPG" : "SET ORIGINAL CHATGPT JPG"}</span>
++            <span>{isUploadingImage ? "LOCKING IMAGE..." : customHeroUrl ? "REPLACE HERO IMAGE" : "SET HERO IMAGE"}</span>
+             <input 
+               type="file" 
+               accept="image/*" 
+@@ -605,7 +559,7 @@
+           )}
+         </div>
+ 
+-        <div className="relative z-10 max-w-2xl w-full text-center space-y-12">
++        <div className="relative z-10 max-w-2xl w-full text-center space-y-8">
+           
+           {/* Header Lines */}
+           <div className="space-y-4">
+@@ -635,7 +589,6 @@
+ 
+           {/* Already written line */}
+           <div className="space-y-4">
+-            <span className="text-rose-500 tracking-[0.3em] font-mono text-[9px] block uppercase font-bold">SCENE VII // THE GATED ENTRY</span>
+             <h3 className="font-sans font-black text-xl sm:text-2xl uppercase tracking-widest text-zinc-100">
+               &ldquo;Despite is for the ones who did it.&rdquo;
+             </h3>
+@@ -644,7 +597,9 @@
+           {/* ONE SHORT PARAGRAPH - Written tight brand thesis */}
+           <div className="max-w-xl mx-auto px-4 py-6 bg-zinc-950/80 backdrop-blur-md border border-zinc-900 rounded-lg">
+             <p className="text-zinc-300 font-serif text-sm sm:text-md italic leading-relaxed text-justify sm:text-center">
+-              This isn&apos;t for the dreamers. It&apos;s for the ones who built anyway — with no funding, no permission, no one in their corner. The ones called lucky after the fact, and delusional before it. If you&apos;ve ever made something happen despite everything that said you couldn&apos;t — this is yours.
++              This isn&apos;t for the dreamers. It&apos;s for the ones who built anyway,<br /><br />
++              with no funding, no permission, no one in their corner. The ones called lucky after the fact, and delusional before it. If you&apos;ve ever made something happen despite everything that said you couldn&apos;t<br /><br />
++              this is yours.
+             </p>
+           </div>
+ 
+@@ -785,7 +740,7 @@
+           </div>
+ 
+           {/* ================= Proof section: 1-2 powerful stories for the scrolling reader ================= */}
+-          <div className="pt-20 border-t border-zinc-900 space-y-12 text-left max-w-xl mx-auto">
++          <div className="pt-12 border-t border-zinc-900 space-y-8 text-left max-w-xl mx-auto">
+             <div className="space-y-2 text-center sm:text-left">
+               <span className="font-mono text-[9px] tracking-[0.4em] text-rose-500 font-bold uppercase block">THE ANOMALY BLUEPRINTS // PROOF OF BRAND</span>
+               <h4 className="text-xl font-sans font-extrabold italic uppercase tracking-wider text-zinc-100">
+@@ -818,7 +773,7 @@
+           </div>
+ 
+           {/* Clean Fine Print Footer */}
+-          <div className="text-center text-[9px] font-mono text-zinc-650 space-y-2 pt-20">
++          <div className="text-center text-[9px] font-mono text-zinc-650 space-y-2 pt-12">
+             <p>© 2026 DESPITE® brand alliance. All rights reserved.</p>
+             <p className="tracking-widest uppercase text-zinc-700 text-[7px]">
+               No network. No bailout. Just the relentless.
